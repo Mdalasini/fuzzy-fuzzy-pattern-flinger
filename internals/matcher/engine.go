@@ -1,7 +1,5 @@
 package matcher
 
-import "fmt"
-
 type engineNFA struct {
 	states       map[string]*state
 	initialState string
@@ -95,7 +93,6 @@ func (nfa *engineNFA) Compute(input string) bool {
 			} else {
 				// * If doesn't match and scanner isn't empty restart NFA
 				if _, err := scanner.r.ReadByte(); err == nil {
-					fmt.Println("didn't match")
 					stack.items = append(stack.items, stackItem{nfa.states[nfa.initialState], make([]string, 0)})
 				}								
 			}
