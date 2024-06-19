@@ -28,7 +28,7 @@ const (
 	OPTIONAL // * '?'
 
 	// * Meta-charcters
-	DOR // * '.'
+	DOT // * '.'
 	ANY_ONE_DIGIT // * '\d' any digit chatcter (digit 0-9)
 	ANY_NONE_DIGIT // * '\D' any non-digit character
 	ANY_ONE_WORD  // * '\w' any word character (letters, digits, and underscores)
@@ -53,17 +53,3 @@ const (
 )
 
 var eof = rune(0)
-
-func contains(s []rune, e rune) bool {
-    for _, a := range s {
-        if a == e {
-            return true
-        }
-    }
-    return false
-}
-
-func isLiteral(ch rune) bool {
-	literalSymbols := []rune{'_', ')', '}', ']', ',', '-',}
-	return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch >= '0' && ch <= '9') || contains(literalSymbols, ch)
-}
